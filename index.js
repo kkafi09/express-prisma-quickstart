@@ -9,7 +9,6 @@ const port = config.get("/port");
 const morgan = require("morgan");
 
 const userApi = require("./api/user");
-const clubApi = require("./api/club");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
@@ -17,7 +16,6 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 app.use("/api/user/v1", userApi);
-app.use("/api/club/v1", clubApi);
 
 app.get("/", (req, res) =>
   res.status(200).json({ message: "Welcome to the API STAPA App" })
